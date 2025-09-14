@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Удаление данных пользователей - Content Farm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #555;
+            margin-top: 30px;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="email"], input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        .btn {
+            background: #e74c3c;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background: #c0392b;
+        }
+        .steps {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 4px solid #e74c3c;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗑️ Удаление данных пользователей</h1>
+        
+        <div class="warning">
+            <strong>⚠️ Внимание!</strong> Удаление данных является необратимым процессом. После подтверждения все ваши данные будут безвозвратно удалены из наших систем.
+        </div>
+
+        <h2>Что будет удалено?</h2>
+        <ul>
+            <li>Информация профиля (имя, email, ID пользователя)</li>
+            <li>История активности в приложении</li>
+            <li>Токены доступа к социальным сетям</li>
+            <li>Аналитические данные, связанные с вашим аккаунтом</li>
+            <li>Все созданные вами настройки</li>
+        </ul>
+
+        <h2>Что НЕ будет удалено?</h2>
+        <ul>
+            <li>Публичные посты в социальных сетях (остаются в соцсетях)</li>
+            <li>Анонимизированные статистические данные</li>
+            <li>Данные, требуемые для соблюдения законодательства</li>
+        </ul>
+
+        <div class="steps">
+            <h3>Процесс удаления данных:</h3>
+            <ol>
+                <li><strong>Заполните форму ниже</strong> - укажите ваши данные</li>
+                <li><strong>Подтверждение личности</strong> - мы проверим, что запрос поступил от владельца аккаунта</li>
+                <li><strong>Обработка запроса</strong> - удаление данных занимает до 30 дней</li>
+                <li><strong>Уведомление</strong> - вы получите подтверждение об удалении</li>
+            </ol>
+        </div>
+
+        <h2>Форма запроса на удаление данных</h2>
+        
+        <form id="deletionForm" action="#" method="post">
+            <div class="form-group">
+                <label for="email">Email адрес:</label>
+                <input type="email" id="email" name="email" required 
+                       placeholder="Введите email, связанный с аккаунтом">
+            </div>
+
+            <div class="form-group">
+                <label for="facebook_id">Facebook/Instagram ID пользователя:</label>
+                <input type="text" id="facebook_id" name="facebook_id" 
+                       placeholder="Необязательно, если неизвестен">
+            </div>
+
+            <div class="form-group">
+                <label for="reason">Причина удаления данных:</label>
+                <textarea id="reason" name="reason" 
+                          placeholder="Опишите причину запроса (необязательно)"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="confirm" name="confirm" required>
+                    Я понимаю, что удаление данных необратимо и подтверждаю свое желание удалить все данные
+                </label>
+            </div>
+
+            <button type="submit" class="btn">Отправить запрос на удаление</button>
+        </form>
+
+        <div id="successMessage" class="success" style="display: none;">
+            <strong>✅ Запрос отправлен!</strong><br>
+            Ваш запрос на удаление данных получен. Мы обработаем его в течение 30 дней и отправим подтверждение на указанный email.
+        </div>
+
+        <h2>Альтернативные способы</h2>
+        <p>Вы также можете отправить запрос на удаление данных:</p>
+        <ul>
+            <li><strong>Email:</strong> privacy@contentfarm.example.com</li>
+            <li><strong>Тема письма:</strong> "Запрос на удаление данных"</li>
+            <li><strong>В письме укажите:</strong> ваш email, Facebook/Instagram ID (если известен)</li>
+        </ul>
+
+        <h2>Время обработки</h2>
+        <p>Согласно требованиям GDPR и политике Facebook, мы обрабатываем запросы на удаление данных в течение <strong>30 дней</strong> с момента получения.</p>
+
+        <hr>
+        <p><small>
+            <a href="privacy-policy.html">← Вернуться к Политике конфиденциальности</a><br>
+            © 2025 Content Farm. Все права защищены.
+        </small></p>
+    </div>
+
+    <script>
+        document.getElementById('deletionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Скрываем форму
+            this.style.display = 'none';
+            
+            // Показываем сообщение об успехе
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // В реальном приложении здесь был бы AJAX запрос на сервер
+            console.log('Форма отправлена:', new FormData(this));
+        });
+    </script>
+</body>
+</html>
